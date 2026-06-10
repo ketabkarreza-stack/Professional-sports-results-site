@@ -1,121 +1,422 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سایت حرفه‌ای نتایج زنده ورزشی | پوشش لحظه‌ای فوتبال، بسکتبال و تنیس</title>
+  <meta name="description" content="سایت حرفه‌ای نتایج زنده ورزشی با پوشش کامل مسابقات فوتبال، بسکتبال، تنیس و لیگ‌های معتبر جهان. مشاهده نتایج لحظه‌ای، آمار بازی‌ها، برنامه مسابقات و تحلیل رقابت‌های مهم." />
+  <meta name="keywords" content="سایت حرفه‌ای نتایج زنده ورزشی, نتایج زنده فوتبال, نتایج زنده بسکتبال, نتایج زنده تنیس, آمار مسابقات, برنامه بازی‌ها" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+      line-height: 2;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    .wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-<title>سایت حرفه‌ای نتایج زنده ورزشی</title>
+    header {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
 
-<style>
+    header h1 {
+      margin: 0 0 15px;
+      font-size: 2.4rem;
+    }
 
-body{
-    margin:0;
-    direction:rtl;
-    font-family:tahoma;
-    background:#111827;
-    color:#f9fafb;
-    line-height:2.1;
-}
+    header p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
 
-.main{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:50px 0;
-}
+    nav {
+      background: #08306b;
+      padding: 12px 0;
+    }
 
-.banner{
-    background:linear-gradient(135deg,#dc2626,#7f1d1d);
-    padding:90px 50px;
-    border-radius:35px;
-    text-align:center;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+    }
 
-.banner h1{
-    font-size:52px;
-}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
 
-.box{
-    background:#1f2937;
-    margin-top:30px;
-    padding:35px;
-    border-radius:24px;
-}
+    section {
+      background: #fff;
+      margin: 25px 0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    }
 
-.box h2{
-    color:#fca5a5;
-}
+    h2 {
+      color: #0d47a1;
+      margin-top: 0;
+      font-size: 1.8rem;
+      border-right: 5px solid #1976d2;
+      padding-right: 12px;
+    }
 
-.table{
-    width:100%;
-    margin-top:20px;
-    border-collapse:collapse;
-}
+    h3 {
+      color: #1565c0;
+      margin-top: 25px;
+    }
 
-.table td{
-    border:1px solid #374151;
-    padding:14px;
-}
+    .intro p,
+    .content p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
 
-</style>
+    .live-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
 
+    .match-card {
+      background: #f8fbff;
+      border: 1px solid #d6e4f5;
+      border-radius: 10px;
+      padding: 18px;
+      transition: 0.3s ease;
+    }
+
+    .match-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .match-card .league {
+      color: #0d47a1;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .match-card .teams {
+      font-size: 1.08rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .match-card .score {
+      font-size: 1.4rem;
+      color: #d32f2f;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .match-card .status {
+      color: #388e3c;
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #dcdcdc;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    table th {
+      background: #1976d2;
+      color: #fff;
+    }
+
+    table tr:nth-child(even) {
+      background: #f7faff;
+    }
+
+    .features-list,
+    .tips-list {
+      padding-right: 20px;
+    }
+
+    .features-list li,
+    .tips-list li {
+      margin-bottom: 10px;
+    }
+
+    .news-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .news-item {
+      background: #f9fafc;
+      border: 1px solid #e3e8ef;
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .news-item h4 {
+      margin-top: 0;
+      color: #0d47a1;
+    }
+
+    footer {
+      background: #0b1f33;
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="main">
+  <header>
+    <div class="wrapper">
+      <h1>سایت حرفه‌ای نتایج زنده ورزشی</h1>
+      <p>
+        اگر به دنبال یک سایت حرفه‌ای نتایج زنده ورزشی هستید که بتواند آخرین اطلاعات مسابقات را
+        به صورت لحظه‌ای، دقیق و قابل اعتماد در اختیار شما قرار دهد، این صفحه می‌تواند یک نمونه کامل
+        از ساختار محتوایی حرفه‌ای برای پوشش رقابت‌های مهم جهان باشد. در این صفحه، نتایج زنده فوتبال،
+        بسکتبال، تنیس و دیگر رشته‌های محبوب به همراه آمار، برنامه بازی‌ها و خلاصه تحلیل هر مسابقه
+        ارائه می‌شود.
+      </p>
+    </div>
+  </header>
 
-<div class="banner">
+  <nav>
+    <div class="wrapper">
+      <ul>
+        <li><a href="#live">نتایج زنده</a></li>
+        <li><a href="#table">برنامه مسابقات</a></li>
+        <li><a href="#analysis">تحلیل مسابقات</a></li>
+        <li><a href="#features">ویژگی‌ها</a></li>
+        <li><a href="#news">اخبار ورزشی</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<h1>سایت حرفه‌ای نتایج زنده ورزشی</h1>
+  <main class="wrapper">
 
-<p>
-نمایش لحظه‌ای نتایج فوتبال، بسکتبال و مسابقات مهم ورزشی جهان
-</p>
+    <section class="intro">
+      <h2>چرا سایت حرفه‌ای نتایج زنده ورزشی اهمیت دارد؟</h2>
+      <p>
+        در دنیای امروز که سرعت انتقال اطلاعات نقش بسیار مهمی در تجربه کاربر دارد، داشتن دسترسی سریع
+        به نتایج زنده مسابقات ورزشی برای هواداران، تحلیل‌گران و دنبال‌کنندگان ورزش اهمیت زیادی پیدا
+        کرده است. کاربران دیگر تمایلی ندارند برای فهمیدن نتیجه یک مسابقه تا پایان بازی منتظر بمانند.
+        آن‌ها می‌خواهند در هر دقیقه از مسابقه، از تعداد گل‌ها، کارت‌ها، تعویض‌ها، مالکیت توپ، تعداد
+        شوت‌ها و دیگر شاخص‌های آماری مطلع شوند.
+      </p>
+      <p>
+        یک سایت حرفه‌ای نتایج زنده ورزشی باید فراتر از نمایش ساده نتیجه مسابقه عمل کند. چنین سایتی
+        باید بتواند اطلاعات را در قالبی خوانا، سریع و قابل فهم نمایش دهد تا کاربر در کوتاه‌ترین زمان
+        ممکن، تصویری کامل از روند مسابقه به دست آورد. طراحی مناسب، سرعت بارگذاری بالا، دسته‌بندی
+        مسابقات، نمایش لیگ‌ها و به‌روزرسانی لحظه‌ای از جمله مهم‌ترین ویژگی‌هایی هستند که در موفقیت
+        این نوع وب‌سایت‌ها نقش دارند.
+      </p>
+      <p>
+        علاوه بر این، پوشش هم‌زمان چندین رشته ورزشی نیز اهمیت بالایی دارد. بسیاری از کاربران تنها
+        فوتبال را دنبال نمی‌کنند و علاقه‌مندند نتیجه زنده مسابقات تنیس، بسکتبال، والیبال، هندبال و
+        حتی مسابقات رزمی را نیز مشاهده کنند. به همین دلیل، یک مرجع حرفه‌ای باید ساختاری منعطف داشته
+        باشد و بتواند محتوای متنوع و گسترده را به شیوه‌ای منظم ارائه دهد.
+      </p>
+    </section>
 
-</div>
+    <section id="live">
+      <h2>نتایج زنده مسابقات مهم امروز</h2>
+      <p>
+        در این بخش، نمونه‌ای از نمایش نتایج زنده برای مسابقات مهم روز را مشاهده می‌کنید. این مدل
+        نمایش برای کاربرانی که به دنبال اطلاع سریع از روند بازی هستند بسیار کاربردی است. هر کارت
+        شامل نام لیگ، تیم‌ها، نتیجه فعلی و وضعیت زمانی مسابقه است.
+      </p>
 
-<div class="box">
+      <div class="live-board">
+        <div class="match-card">
+          <div class="league">لیگ برتر ایران</div>
+          <div class="teams">استقلال - پرسپولیس</div>
+          <div class="score">2 - 1</div>
+          <div class="status">دقیقه 84 | بازی زنده</div>
+        </div>
 
-<h2>نتایج زنده ورزشی چیست؟</h2>
+        <div class="match-card">
+          <div class="league">لیگ قهرمانان اروپا</div>
+          <div class="teams">رئال مادرید - بایرن مونیخ</div>
+          <div class="score">1 - 1</div>
+          <div class="status">پایان نیمه اول</div>
+        </div>
 
-<p>
-نتایج زنده به کاربران کمک می‌کند
-مسابقات را به صورت لحظه‌ای دنبال کنند.
-این اطلاعات شامل گل‌ها،
-امتیازات و آمار مسابقه است.
-</p>
+        <div class="match-card">
+          <div class="league">NBA</div>
+          <div class="teams">لس‌آنجلس لیکرز - بوستون سلتیکس</div>
+          <div class="score">88 - 91</div>
+          <div class="status">کوارتر چهارم</div>
+        </div>
 
-</div>
+        <div class="match-card">
+          <div class="league">ATP Tour</div>
+          <div class="teams">نواک جوکوویچ - دنیل مدودف</div>
+          <div class="score">2 - 1 ست</div>
+          <div class="status">ست چهارم در جریان است</div>
+        </div>
+      </div>
+    </section>
 
-<div class="box">
+    <section id="table">
+      <h2>جدول برنامه و خلاصه مسابقات امروز</h2>
+      <p>
+        یکی از مهم‌ترین امکانات هر سایت حرفه‌ای نتایج زنده ورزشی، ارائه جدول کامل مسابقات است. در
+        این جدول، کاربر می‌تواند زمان شروع بازی‌ها، تیم‌های حاضر، لیگ مربوطه و وضعیت مسابقه را به
+        شکل یکجا مشاهده کند. این نوع نمایش برای کاربرانی که قصد پیگیری چند بازی به صورت هم‌زمان را
+        دارند بسیار کاربردی و مؤثر است.
+      </p>
 
-<h2>ویژگی‌های سایت حرفه‌ای</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>لیگ / رقابت</th>
+            <th>زمان</th>
+            <th>تیم میزبان</th>
+            <th>نتیجه</th>
+            <th>تیم میهمان</th>
+            <th>وضعیت</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>لیگ برتر ایران</td>
+            <td>19:30</td>
+            <td>سپاهان</td>
+            <td>0 - 0</td>
+            <td>تراکتور</td>
+            <td>شروع نشده</td>
+          </tr>
+          <tr>
+            <td>لالیگا</td>
+            <td>22:30</td>
+            <td>اتلتیکو مادرید</td>
+            <td>2 - 1</td>
+            <td>سویا</td>
+            <td>دقیقه 70</td>
+          </tr>
+          <tr>
+            <td>سری آ</td>
+            <td>23:15</td>
+            <td>آث میلان</td>
+            <td>1 - 1</td>
+            <td>ناپولی</td>
+            <td>نیمه دوم</td>
+          </tr>
+          <tr>
+            <td>Premier League</td>
+            <td>21:00</td>
+            <td>آرسنال</td>
+            <td>3 - 0</td>
+            <td>چلسی</td>
+            <td>پایان بازی</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-<table class="table">
+    <section id="analysis" class="content">
+      <h2>تحلیل عملکرد و اهمیت آمار در نتایج زنده</h2>
+      <p>
+        صرف مشاهده نتیجه برای بسیاری از کاربران کافی نیست. آنچه باعث می‌شود یک سایت در میان رقبا
+        حرفه‌ای‌تر به نظر برسد، ارائه آمار تکمیلی و تحلیل روند مسابقه است. برای مثال، وقتی نتیجه یک
+        بازی 1 بر 1 است، شاید کاربر بخواهد بداند کدام تیم مالکیت بیشتری داشته، کدام تیم شوت‌های
+        بیشتری به چارچوب زده و کدام بازیکن نقش کلیدی‌تری در روند بازی داشته است.
+      </p>
+      <p>
+        در مسابقات فوتبال، شاخص‌هایی مانند مالکیت توپ، تعداد پاس صحیح، ضربات کرنر، موقعیت‌های خطرناک،
+        امید گل و تعداد شوت در چارچوب می‌توانند درک بسیار دقیق‌تری از جریان بازی به کاربر بدهند.
+        در بسکتبال نیز آمار پرتاب‌های سه امتیازی، ریباند، توپ‌ربایی و درصد موفقیت شوت‌ها از عوامل
+        مهم تحلیلی به شمار می‌روند. در تنیس هم آمار سرویس اول، امتیازهای گرفته شده با سرویس دوم و
+        تعداد خطاهای غیر اجباری اطلاعات بسیار ارزشمندی ایجاد می‌کند.
+      </p>
+      <p>
+        به همین دلیل، سایت حرفه‌ای نتایج زنده ورزشی تنها یک نمایشگر امتیاز نیست؛ بلکه باید به عنوان
+        یک ابزار تحلیلی پویا عمل کند. چنین ساختاری به کاربران کمک می‌کند نه‌تنها نتیجه را ببینند،
+        بلکه منطق پشت نتیجه را هم بفهمند. همین موضوع باعث افزایش زمان ماندگاری کاربر در سایت و بهبود
+        تجربه کلی او خواهد شد.
+      </p>
 
-<tr>
-<td>بروزرسانی سریع</td>
-<td>آمار زنده</td>
-</tr>
+      <h3>نمونه تحلیل کوتاه یک مسابقه فوتبال</h3>
+      <p>
+        در دیدار فرضی استقلال و پرسپولیس که با نتیجه 2 بر 1 دنبال می‌شود، تیم استقلال با وجود مالکیت
+        کمتر توپ، در انتقال سریع و استفاده از ضدحملات موفق‌تر بوده است. پرسپولیس موقعیت‌های بیشتری
+        ایجاد کرده اما دقت پایینی در ضربات آخر داشته است. این تفاوت آماری می‌تواند به کاربر نشان دهد
+        که چرا نتیجه فعلی با ظاهر کلی مسابقه تفاوت دارد.
+      </p>
 
-<tr>
-<td>پوشش لیگ‌ها</td>
-<td>تحلیل مسابقات</td>
-</tr>
+      <h3>نمونه تحلیل کوتاه یک مسابقه تنیس</h3>
+      <p>
+        در رقابت جوکوویچ و مدودف، نتیجه 2 بر 1 در ست‌ها زمانی معنای واقعی پیدا می‌کند که آمار سرویس
+        و رالی‌ها بررسی شود. اگر جوکوویچ درصد بالاتری در امتیازگیری با سرویس اول داشته باشد، می‌توان
+        نتیجه گرفت که کنترل بازی بیشتر در اختیار او بوده، حتی اگر ست‌ها نزدیک دنبال شده باشند.
+      </p>
+    </section>
 
-<tr>
-<td>رابط کاربری سریع</td>
-<td>نمایش دقیق نتایج</td>
-</tr>
+    <section id="features">
+      <h2>ویژگی‌های یک مرجع حرفه‌ای برای نتایج زنده ورزشی</h2>
+      <ul class="features-list">
+        <li>به‌روزرسانی لحظه‌ای نتایج مسابقات بدون نیاز به رفرش مداوم صفحه</li>
+        <li>پوشش هم‌زمان لیگ‌ها و تورنمنت‌های معتبر داخلی و خارجی</li>
+        <li>نمایش آمار کامل بازی شامل مالکیت، شوت، کرنر، خطا و کارت‌ها</li>
+        <li>طراحی ریسپانسیو و سازگار با موبایل، تبلت و دسکتاپ</li>
+        <li>جست‌وجوی سریع تیم‌ها، لیگ‌ها و مسابقات خاص</li>
+        <li>نمایش برنامه روزانه مسابقات در کنار نتایج زنده</li>
+        <li>امکان انتشار تحلیل‌های کوتاه قبل و بعد از بازی‌ها</li>
+        <li>ارائه خلاصه وضعیت مسابقه برای کاربرانی که زمان کمی دارند</li>
+      </ul>
 
-</table>
+      <p>
+        هرچه این ویژگی‌ها دقیق‌تر و سریع‌تر پیاده‌سازی شوند، اعتماد کاربران به سایت بیشتر خواهد شد.
+        بسیاری از کاربران حرفه‌ای ورزش ترجیح می‌دهند مرجعی را دنبال کنند که علاوه بر نتیجه، نظم،
+        دقت، سرعت و پوشش محتوایی مناسبی داشته باشد.
+      </p>
+    </section>
 
-</div>
-
-</div>
-
-</body>
-
-</html>
+    <section class="content">
+      <h2>راهنمای استفاده کاربران از نتایج زنده ورزشی</h2>
+      <p>
+        کاربرانی که هر روز تعداد زیادی مسابقه را دنبال می‌کنند، بهتر است از دسته‌بندی رشته‌های ورزشی
+        و لیگ‌ها استفاده کنند تا سریع‌تر به اطلاعات مورد نظر خود برسند. برای مثال، یک کاربر فوتبال
+        می‌تواند فقط لیگ برتر انگلیس، لالیگا
